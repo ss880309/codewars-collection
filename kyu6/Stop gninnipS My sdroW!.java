@@ -1,31 +1,14 @@
+import java.util.Arrays;
+
 public class SpinWords {
 
   public String spinWords(String sentence) {
-    //TODO: Code stuff here
-    StringBuilder sb = new StringBuilder("");
-    
-    String[] s = sentence.split(" ");
-    
-     if(s[0].length()>=5){
-            sb.append(new StringBuilder(s[0]).reverse());
-        }
-        else
-        {
-            sb.append(s[0]);
-        }
-    
-    for(int i=1;i<s.length;i++)
-    {
-        if(s[i].length()>=5){
-            sb.append(" "+new StringBuilder(s[i]).reverse());
-        }
-        else
-        {
-            sb.append(" "+s[i]);
-        }
+    String[] words = sentence.split(" ");
+    for (int i=0; i<words.length; i++) {
+      if (words[i].length() >= 5) {
+        words[i] = new StringBuilder(words[i]).reverse().toString();
+      }
     }
-    
-    return sb.toString();
-    
+    return String.join(" ",words);
   }
 }
